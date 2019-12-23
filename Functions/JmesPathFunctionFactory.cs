@@ -59,9 +59,9 @@ namespace DevLab.JmesPath.Functions
             return this;
         }
 
-        public IRegisterFunctions Register<T>() where T : JmesPathFunction
+        public IRegisterFunctions Register<T>() where T : JmesPathFunction,new()
         {
-            var instance = Activator.CreateInstance<T>();
+            var instance = new T();
             Register(instance.Name,instance);
 
             return this;
